@@ -1,0 +1,49 @@
+es:
+  build: es_config
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  volumes:
+    - ./es_config:/usr/share/elasticsearch/config
+
+ki:
+  image: kibana:5
+  ports:
+    - "5601:5601"
+  links:
+    - es
+  environment:
+    - ELASTICSEARCH_URL=http://192.168.33.10:9200
+
+#lgs:
+#  build: logstash
+#  ports:
+#    - "5000:5000"
+#  links:
+#    - es
+#  volumes:
+#    - "$PWD/logs:/var/log/apache2"
+
+httpd:
+  build: httpd
+  ports:
+    - "8081:8081"
+  volumes:
+    - "$PWD/logs:/usr/local/apache2/logs"
+
+head:
+  image: mobz/elasticsearch-head:5
+  ports:
+    - "9100:9100"
+  links:
+    - es
+
+fluentd:
+  build: fluentd
+  ports:
+    - 24284:24284
+  volumes:
+    - "$PWD/logs:/var/log/apache2"
+    - "$PWD/data:/fluentd/log"
+  links:
+    - es

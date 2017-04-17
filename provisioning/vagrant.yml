@@ -1,0 +1,13 @@
+---
+- hosts: vagrants
+  become: yes
+  user: vagrant
+  tasks:
+  - name: install packages zsh
+    yum: name={{ item }} state=installed
+    with_items:
+      - zsh
+      - vim
+      - git
+  - name: copy
+    copy: src=./config/.vimrc dest=/home/vagrant/ owner=vagrant

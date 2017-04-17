@@ -1,0 +1,42 @@
+es:
+  image: elasticsearch:5
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  volumes:
+    - ./es_config:/usr/share/elasticsearch/config
+    - ./es_data:/usr/share/elasticsearch/data
+  environment:
+    - ES_JAVA_OPTS=-Xms512M -Xmx512M
+
+ki:
+  image: kibana:5
+  ports:
+    - "5601:5601"
+  links:
+    - es
+  environment:
+    - ELASTICSEARCH_URL=http://es:9200
+
+lgs:
+  build: logstash
+  ports:
+    - "5000:5000"
+  links:
+    - es
+  volumes:
+    - "$PWD/logs:/var/log/apache2"
+
+httpd:
+  build: httpd
+  ports:
+    - "8081:8081"
+  volumes:
+    - "$PWD/logs:/usr/local/apache2/logs"
+
+head:
+  image: mobz/elasticsearch-head:5
+  ports:
+    - "9100:9100"
+  links:
+    - es
