@@ -9,5 +9,17 @@
       - zsh
       - vim
       - git
-  - name: copy
+  - name: copy .vimrc
     copy: src=./config/.vimrc dest=/home/vagrant/ owner=vagrant
+  - name: copy docker-compose
+    copy: src=./config/docker-compose.yml dest=/home/vagrant/ owner=vagrant
+  - name: copy es_config
+    copy: src=./config/es_config dest=/home/vagrant/ owner=vagrant
+  - name: copy fluentd
+    copy: src=./config/fluentd dest=/home/vagrant/ owner=vagrant
+  - name: copy logs
+    copy: src=./config/logs dest=/home/vagrant/ owner=vagrant
+  - name: copy logstash
+    copy: src=./config/logstash dest=/home/vagrant/ owner=vagrant
+  - name: copy httpd
+    copy: src=./config/httpd dest=/home/vagrant/ owner=vagrant
