@@ -1,10 +1,12 @@
 es:
-  build: es_config
+  image: elasticsearch:5
   ports:
     - "9200:9200"
     - "9300:9300"
   volumes:
-    - ./es_config:/usr/share/elasticsearch/config
+    - "$PWD/es_config:/usr/share/elasticsearch/config"
+  environment:
+    ES_JAVA_OPTS: "-Xms512m -Xmx512m"
 
 ki:
   image: kibana:5
@@ -24,12 +26,12 @@ ki:
 #  volumes:
 #    - "$PWD/logs:/var/log/apache2"
 
-httpd:
-  build: httpd
-  ports:
-    - "8081:8081"
-  volumes:
-    - "$PWD/logs:/usr/local/apache2/logs"
+#httpd:
+#  build: httpd
+#  ports:
+#    - "8081:8081"
+#  volumes:
+#    - "$PWD/logs:/usr/local/apache2/logs"
 
 head:
   image: mobz/elasticsearch-head:5
@@ -38,12 +40,12 @@ head:
   links:
     - es
 
-fluentd:
-  build: fluentd
-  ports:
-    - 24284:24284
-  volumes:
-    - "$PWD/logs:/var/log/apache2"
-    - "$PWD/data:/fluentd/log"
-  links:
-    - es
+#fluentd:
+#  build: fluentd
+#  ports:
+#    - 24284:24284
+#  volumes:
+#    - "$PWD/logs:/var/log/apache2"
+#    - "$PWD/data:/fluentd/log"
+#  links:
+#    - es
