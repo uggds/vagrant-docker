@@ -19,7 +19,18 @@ mv /path/to/binary/linuxx64_12201_database.zip 12.2.0.1/
 ./buildDockerImage.sh -v 12.2.0.1 -e -i
 ```
 
-# How to increase Docker container size limit
+# IF there is not enough space available in the docker container..
+
+If you encounted the follow message, you should increase Docker container size limit.
+
+```
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+checkSpace.sh: ERROR - There is not enough space available in the docker container.
+checkSpace.sh: The container needs at least 15 GB available.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+```
+
+## How to increase Docker container size limit
 The minimum size of docker containers is 10 GB and its not possible to decrease it further. But you can increase the docker container size from 10 GB it to a higher value, say 20 GB, with these steps:
 1. Stop the Docker daemon after taking backup of existing containers and images.
 2. Reset the Docker default directory.
