@@ -5,7 +5,7 @@ vagrant up
 vagrant ssh
 ```
 
-# use Oracle Database
+# USE Oracle Database
 
 Download the binary file of Oracle Database here.  
 http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html
@@ -18,8 +18,9 @@ cd oracle/OracleDatabase/dockerfiles
 mv /path/to/binary/linuxx64_12201_database.zip 12.2.0.1/
 ./buildDockerImage.sh -v 12.2.0.1 -e -i
 ```
+---
 
-# IF there is not enough space available in the docker container..
+If there is not enough space available in the docker container..
 
 If you encounted the follow message, you should increase Docker container size limit.
 
