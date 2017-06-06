@@ -18,7 +18,8 @@ cd oracle/OracleDatabase/dockerfiles
 mv /path/to/binary/linuxx64_12201_database.zip 12.2.0.1/
 ./buildDockerImage.sh -v 12.2.0.1 -e -i
 ```
----
+
+# Trouble shoot
 
 If there is not enough space available in the docker container, you must increase Docker container size limit.
 
@@ -52,3 +53,6 @@ and run
 sudo systemctl daemon-reload
 sudo service docker start
 ```
+
+# Ref
+https://bobcares.com/blog/docker-container-size/
