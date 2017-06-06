@@ -20,9 +20,7 @@ mv /path/to/binary/linuxx64_12201_database.zip 12.2.0.1/
 ```
 ---
 
-If there is not enough space available in the docker container..
-
-If you encounted the follow message, you should increase Docker container size limit.
+If there is not enough space available in the docker container, you must increase Docker container size limit.
 
 ```
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
