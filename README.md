@@ -18,3 +18,14 @@ cd oracle/OracleDatabase/dockerfiles
 mv /path/to/binary/linuxx64_12201_database.zip 12.2.0.1/
 ./buildDockerImage.sh -v 12.2.0.1 -e -i
 ```
+
+# How to increase Docker container size limit
+The minimum size of docker containers is 10 GB and its not possible to decrease it further. But you can increase the docker container size from 10 GB it to a higher value, say 20 GB, with these steps:
+1. Stop the Docker daemon after taking backup of existing containers and images.
+2. Reset the Docker default directory.
+3. Start Docker service with the parameter ‘dm.basesize’ set for the new value for Docker container size limit.
+
+```
+dockerd --storage-opt dm.basesize=20G
+```
+The newly created containers will now have their size limits set to 20 GB.
