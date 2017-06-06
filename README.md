@@ -41,7 +41,14 @@ dockerd --storage-opt dm.basesize=20G
 The newly created containers will now have their size limits set to 20 GB.
 
 ### incase of using systemd
-modify `/lib/systemd/system/docker.service`
+Open `/lib/systemd/system/docker.service`.
 ```
+...
 ExecStart=/usr/bin/dockerd --storage-opt dm.basesize=20G
+...
+```
+and run
+```
+sudo systemctl daemon-reload
+sudo service docker start
 ```
