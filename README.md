@@ -19,12 +19,10 @@ cd config
 git clone https://github.com/oracle/docker-images.git oracle
 cd ../..
 vagrant provision
-```
-in linux
-```
-cd oracle/OracleDatabase/dockerfiles
-mv /path/to/binary/linuxx64_12201_database.zip 12.2.0.1/
-./buildDockerImage.sh -v 12.2.0.1 -e -i
+vagrant ssh
+vagrant@localhost ~/$ cd oracle/OracleDatabase/dockerfiles
+vagrant@localhost ~/$ mv /path/to/binary/linuxx64_12201_database.zip 12.2.0.1/
+vagrant@localhost ~/$ ./buildDockerImage.sh -v 12.2.0.1 -e -i
 ```
 
 # Trouble shoot
