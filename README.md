@@ -12,8 +12,16 @@ http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.ht
 
 ```
 git clone https://github.com/uggds/vagrant-docker.git
-cd vagrant-docker/provisioning/config
+cd vagrant-docker
+cd provisioning
+echo "  - name: copy oracle\n    copy: src=./config/oracle dest=/home/vagrant/ owner=vagrant" >> vagrant.yml
+cd config
 git clone https://github.com/oracle/docker-images.git oracle
+cd ../..
+vagrant provision
+```
+in linux
+```
 cd oracle/OracleDatabase/dockerfiles
 mv /path/to/binary/linuxx64_12201_database.zip 12.2.0.1/
 ./buildDockerImage.sh -v 12.2.0.1 -e -i
@@ -55,4 +63,5 @@ sudo service docker start
 ```
 
 # Ref
+https://github.com/oracle/docker-images/tree/master/OracleDatabase
 https://bobcares.com/blog/docker-container-size/
