@@ -24,6 +24,10 @@ vagrant@localhost ~/$ cd oracle/OracleDatabase/dockerfiles
 vagrant@localhost ~/$ mv /path/to/binary/linuxx64_12201_database.zip 12.2.0.1/
 vagrant@localhost ~/$ ./buildDockerImage.sh -v 12.2.0.1 -e -i
 ```
+And docker run.
+```
+vagrant@localhost ~/$ sudo docker run -p 1521:1521 --name ora oracle/database:12.2.0.1-ee
+```
 
 # Trouble shoot
 
