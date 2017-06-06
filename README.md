@@ -48,18 +48,18 @@ dockerd --storage-opt dm.basesize=20G
 The newly created containers will now have their size limits set to 20 GB.
 
 ### incase of using systemd
-Open `/lib/systemd/system/docker.service`.
+Open `/lib/systemd/system/docker.service`,
 ```
 ...
 ExecStart=/usr/bin/dockerd --storage-opt dm.basesize=20G
 ...
 ```
-and run
+and restart docker service.
 ```
 sudo systemctl daemon-reload
-sudo service docker start
+sudo service docker restart
 ```
 
 # Ref
-https://github.com/oracle/docker-images/tree/master/OracleDatabase
+https://github.com/oracle/docker-images/tree/master/OracleDatabase  
 https://bobcares.com/blog/docker-container-size/
