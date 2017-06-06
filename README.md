@@ -7,7 +7,7 @@ vagrant ssh
 
 # use Oracle Database
 
-Download the binary file of Oracle Database here.
+Download the binary file of Oracle Database here.  
 http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html
 
 ```
