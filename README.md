@@ -66,4 +66,5 @@ sudo service docker restart
 
 # Ref
 https://github.com/oracle/docker-images/tree/master/OracleDatabase  
+http://qiita.com/lethe2211/items/0bb493fa93a0088cfac9  
 https://bobcares.com/blog/docker-container-size/
