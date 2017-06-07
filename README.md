@@ -75,6 +75,26 @@ you can check the error log with the following.
 $ sudo journalctl -xe
 ```
 
+```
+-- Unit docker.service has begun starting up.
+2600  6月 07 10:03:42 localhost dockerd[3887]: time="2017-06-07T10:03:42.332563149Z" level=info msg="libcontainerd: new containerd process, pid: 3890"
+2601  6月 07 10:03:43 localhost dockerd[3887]: time="2017-06-07T10:03:43.355875972Z" level=warning msg="devmapper: Usage of loopback devices is strongly discouraged for production use. Please use `--storage-opt dm.thinpooldev` or use >
+2602  6月 07 10:03:43 localhost dockerd[3887]: time="2017-06-07T10:03:43.387532312Z" level=warning msg="devmapper: Base device already exists and has filesystem xfs on it. User specified filesystem  will be ignored."
+2603  6月 07 10:03:43 localhost dockerd[3887]: time="2017-06-07T10:03:43.392868323Z" level=error msg="[graphdriver] prior storage driver \"devicemapper\" failed: devmapper: Base device size cannot be smaller than 26.84 GB"
+2604  6月 07 10:03:43 localhost dockerd[3887]: time="2017-06-07T10:03:43.393031778Z" level=fatal msg="Error starting daemon: error initializing graphdriver: devmapper: Base device size cannot be smaller than 26.84 GB"
+2605  6月 07 10:03:43 localhost systemd[1]: docker.service: main process exited, code=exited, status=1/FAILURE
+2606  6月 07 10:03:43 localhost systemd[1]: Failed to start Docker Application Container Engine.
+2607 -- Subject: Unit docker.service has failed
+2608 -- Defined-By: systemd
+2609 -- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+2610 ---
+2611 -- Unit docker.service has failed.
+2612 ---
+2613 -- The result is failed.
+2614  6月 07 10:03:43 localhost systemd[1]: Unit docker.service entered failed state.
+2615  6月 07 10:03:43 localhost systemd[1]: docker.service failed.
+```
+
 # Ref
 https://github.com/oracle/docker-images/tree/master/OracleDatabase  
 http://qiita.com/lethe2211/items/0bb493fa93a0088cfac9  
