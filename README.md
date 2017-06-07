@@ -95,6 +95,12 @@ $ sudo journalctl -xe
 2615  6月 07 10:03:43 localhost systemd[1]: docker.service failed.
 ```
 
+line:2603
+```
+level=error msg="[graphdriver] prior storage driver \"devicemapper\" failed: devmapper: Base device size cannot be smaller than 26.84 GB"
+```
+workaround is - rm -rf /var/lib/docker & restart docker(sometimes host reboot needed)
+
 # Ref
 https://github.com/oracle/docker-images/tree/master/OracleDatabase  
 http://qiita.com/lethe2211/items/0bb493fa93a0088cfac9  
