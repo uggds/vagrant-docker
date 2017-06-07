@@ -31,7 +31,7 @@ vagrant@localhost ~/$ sudo docker run -p 1521:1521 --name ora oracle/database:12
 
 # Trouble shoot
 
-If there is not enough space available in the docker container, you must increase Docker container size limit.
+### If there is not enough space available in the docker container, you must increase Docker container size limit.
 
 ```
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -62,6 +62,17 @@ and restart docker service.
 ```
 sudo systemctl daemon-reload
 sudo service docker restart
+```
+
+### docker does not start with an error of iptables
+you attempt an error similar to the following.
+```
+$ sudo systemctl start docker
+Job for docker.service failed because the control process exited with error code. See "systemctl status docker.service"
+```
+you can check the error log with the following.
+```
+$ sudo journalctl -xe
 ```
 
 # Ref
