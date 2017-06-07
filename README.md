@@ -100,6 +100,7 @@ line:2603
 level=error msg="[graphdriver] prior storage driver \"devicemapper\" failed: devmapper: Base device size cannot be smaller than 26.84 GB"
 ```
 workaround is - rm -rf /var/lib/docker & restart docker(sometimes host reboot needed)
+https://github.com/moby/moby/issues/23089
 
 # Ref
 https://github.com/oracle/docker-images/tree/master/OracleDatabase  
